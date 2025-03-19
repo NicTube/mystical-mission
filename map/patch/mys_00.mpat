@@ -1,0 +1,637 @@
+#new:Header $Header
+{
+	[MainScript] $Script_Main
+	[Background] 80200000
+	[EntryList] $EntryList
+	[EntryCount] 2
+    [MapTattle] 0019000D
+}
+
+#new:EntryList $EntryList
+{
+	~Vec4f:Entry0
+    ~Vec4f:Entry1
+}
+
+#new:Script $Script_TexturePan_Update
+{
+    SetGroup  00000000
+    If  *Var[5]  ==  00000001
+        If  *Var[6]  ==  00000001
+            If  *Var[7]  ==  00000001
+                If  *Var[8]  ==  00000001
+                    Call  $Function_TexturePan_Simple ( )
+                    Return
+                EndIf
+            EndIf
+        EndIf
+    EndIf
+    Call  $Function_TexturePan_Complex ( )
+    Return
+    End
+}
+
+#new:Function $Function_TexturePan_Simple
+{
+    ADDIU       SP, SP, FFE8
+    SW          S0, 10 (SP)
+    COPY        S0, A0
+    SW          RA, 14 (SP)
+    LW          V1, A8 (S0)
+    LW          V0, 88 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o30
+    SW          V1, A8 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .o40
+    ADDU        V0, V1, V0
+    .o30
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .o44
+    SUBU        V0, V1, A0
+    .o40
+    SW          V0, A8 (S0)
+    .o44
+    LW          V1, AC (S0)
+    LW          V0, 8C (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o64
+    SW          V1, AC (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .o74
+    ADDU        V0, V1, V0
+    .o64
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .o78
+    SUBU        V0, V1, A0
+    .o74
+    SW          V0, AC (S0)
+    .o78
+    LW          V1, B0 (S0)
+    LW          V0, 90 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o98
+    SW          V1, B0 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .oA8
+    ADDU        V0, V1, V0
+    .o98
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .oAC
+    SUBU        V0, V1, A0
+    .oA8
+    SW          V0, B0 (S0)
+    .oAC
+    LW          V1, B4 (S0)
+    LW          V0, 94 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .oCC
+    SW          V1, B4 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .oDC
+    ADDU        V0, V1, V0
+    .oCC
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .oE0
+    SUBU        V0, V1, A0
+    .oDC
+    SW          V0, B4 (S0)
+    .oE0
+    LW          A0, 84 (S0)
+    JAL         8011BC1C
+    LW          A1, A8 (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC34
+    LW          A1, AC (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC4C
+    LW          A1, B0 (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC64
+    LW          A1, B4 (S0)
+    LW          RA, 14 (SP)
+    LW          S0, 10 (SP)
+    CLEAR       V0
+    JR          RA
+    ADDIU       SP, SP, 18
+}
+
+#new:Function $Function_TexturePan_Complex
+{
+    ADDIU       SP, SP, FFE8
+    SW          S0, 10 (SP)
+    COPY        S0, A0
+    BEQ         A1, R0, .o24
+    SW          RA, 14 (SP)
+    SW          R0, 70 (S0)
+    SW          R0, 74 (S0)
+    SW          R0, 78 (S0)
+    SW          R0, 7C (S0)
+    .o24
+    LW          V0, 70 (S0)
+    BNE         V0, R0, .o64
+    NOP
+    LW          V1, A8 (S0)
+    LW          V0, 88 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o50
+    SW          V1, A8 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .o60
+    ADDU        V0, V1, V0
+    .o50
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .o64
+    SUBU        V0, V1, A0
+    .o60
+    SW          V0, A8 (S0)
+    .o64
+    LW          V0, 74 (S0)
+    BNE         V0, R0, .oA4
+    NOP
+    LW          V1, AC (S0)
+    LW          V0, 8C (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o90
+    SW          V1, AC (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .oA0
+    ADDU        V0, V1, V0
+    .o90
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .oA4
+    SUBU        V0, V1, A0
+    .oA0
+    SW          V0, AC (S0)
+    .oA4
+    LW          V0, 78 (S0)
+    BNE         V0, R0, .oE4
+    NOP
+    LW          V1, B0 (S0)
+    LW          V0, 90 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .oD0
+    SW          V1, B0 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .oE0
+    ADDU        V0, V1, V0
+    .oD0
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .oE4
+    SUBU        V0, V1, A0
+    .oE0
+    SW          V0, B0 (S0)
+    .oE4
+    LW          V0, 7C (S0)
+    BNE         V0, R0, .o124
+    NOP
+    LW          V1, B4 (S0)
+    LW          V0, 94 (S0)
+    ADDU        V1, V1, V0
+    BGEZ        V1, .o110
+    SW          V1, B4 (S0)
+    LUI         V0, 2
+    BEQ         R0, R0, .o120
+    ADDU        V0, V1, V0
+    .o110
+    LUI         A0, 2
+    SLT         V0, A0, V1
+    BEQ         V0, R0, .o124
+    SUBU        V0, V1, A0
+    .o120
+    SW          V0, B4 (S0)
+    .o124
+    LW          A0, 84 (S0)
+    JAL         8011BC1C
+    LW          A1, A8 (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC34
+    LW          A1, AC (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC4C
+    LW          A1, B0 (S0)
+    LW          A0, 84 (S0)
+    JAL         8011BC64
+    LW          A1, B4 (S0)
+    LW          V0, 70 (S0)
+    LW          V1, 78 (S0)
+    LW          A0, 98 (S0)
+    ADDIU       V0, V0, 1
+    SW          V0, 70 (S0)
+    LW          V0, 74 (S0)
+    ADDIU       V1, V1, 1
+    SW          V1, 78 (S0)
+    LW          V1, 70 (S0)
+    ADDIU       V0, V0, 1
+    SW          V0, 74 (S0)
+    LW          V0, 7C (S0)
+    SLT         V1, V1, A0
+    ADDIU       V0, V0, 1
+    BNE         V1, R0, .o198
+    SW          V0, 7C (S0)
+    SW          R0, 70 (S0)
+    .o198
+    LW          V0, 74 (S0)
+    LW          V1, 9C (S0)
+    SLT         V0, V0, V1
+    BEQL        V0, R0, .o1AC
+    SW          R0, 74 (S0)
+    .o1AC
+    LW          V0, 78 (S0)
+    LW          V1, A0 (S0)
+    SLT         V0, V0, V1
+    BEQL        V0, R0, .o1C0
+    SW          R0, 78 (S0)
+    .o1C0
+    LW          V0, 7C (S0)
+    LW          V1, A4 (S0)
+    SLT         V0, V0, V1
+    BEQL        V0, R0, .o1D4
+    SW          R0, 7C (S0)
+    .o1D4
+    LW          RA, 14 (SP)
+    LW          S0, 10 (SP)
+    CLEAR       V0
+    JR          RA
+    ADDIU       SP, SP, 18
+}
+
+#new:Script_Main $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:GoombaVillage
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True )
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+
+    Set *SubWentDown .False
+
+    
+    Call EnableModel ( ~Model:water_spiral .False )
+
+    Call    GetEntryID ( *VarB )
+	If  *VarB != ~Entry:Entry1
+        Wait  30`
+        
+        Set	   *Var[0] $Script_MakeExits
+        Exec    EnterWalk
+
+        Exec $SubFloating
+        Else
+        %Submarine Entry
+        Exec  $SubmarineEntry
+        Exec  $Script_MakeExits
+        EndIf
+
+
+
+	Exec  $Script_SetupMusic
+	Exec  $Script_SetupTexturePan
+
+	
+
+    Exec  $Script_MakeEntities
+
+	Return
+	End
+}
+#new:Function $GotStartSkills
+{
+    PUSH      t1, t2, t3, t4, t5, t6
+    SAB       R0, 8010F291
+    LIA       t6, F
+    LIA       t1, 1
+    LIA       t2, A
+	LIA       t3, 1
+	LIA       t4, 44
+	LIA       t5, 5
+    SAB       t1, 8010F29A
+    SAB       t2, 8010F295
+    SAB       t2, 8010F296
+    SAB       t2, 8010F297
+	SAB       t3, 8010F498
+	SAB       t4, 8010F499
+	SAB       t5, 8010F298
+    SAB       t6, 8010F292 % Current HP -> 15 (F)
+    SAB       t6, 8010F293 % Max HP -> 15 (F)
+    SAB       t6, 8010F294 % Max HP -> 15 (F)
+    POP       t1, t2, t3, t4, t5, t6
+    JR        RA
+    LI        V0, 2
+}
+
+#new:Script $SubFloating
+{
+    Call EnableModel ( ~Model:water_spiral .True )
+
+    Label A
+
+    If *SubWentDown == .True
+        Wait 1
+        Goto B
+    EndIf
+
+    Call MakeLerp  ( 128` 140` 22` .Easing:CosInOut )
+    Loop
+        Call  UpdateLerp ( )
+        Call  TranslateGroup    ( ~Model:cheep_ship_g 00000000 *Var0 00000000 )
+        Wait  1`
+        If  *Var1  ==  00000000
+            BreakLoop
+        EndIf
+    EndLoop
+
+    If *SubWentDown == .True
+        Wait 1
+        Goto B
+    EndIf
+
+    Call MakeLerp  ( 140` 128` 22` .Easing:CosInOut )
+    Loop
+        Call  UpdateLerp ( )
+        Call  TranslateGroup    ( ~Model:cheep_ship_g 00000000 *Var0 00000000 )
+        Wait  1`
+        If  *Var1  ==  00000000
+            BreakLoop
+        EndIf
+    EndLoop
+
+    Wait 1
+
+    Goto A
+    Wait 1
+    Label B
+
+    Return
+    End
+}
+#new:Script $SubmarineEntry
+{
+    Call DisablePlayerInput ( .True )
+
+    Call SetCamSpeed ( .Cam:Default *Fixed[99.0] )
+	Call UseSettingsFrom ( .Cam:Default ~Vec3d:Marker_MarioExitPos )
+	Call SetPanTarget ( .Cam:Default ~Vec3d:Marker_CamSubPos0 )
+    Call PanToTarget ( .Cam:Default 0 1 )
+    Call WaitForCam ( .Cam:Default *Fixed[1.0] )
+
+    Call SetCamSpeed ( .Cam:Default *Fixed[0.6] )
+	Call UseSettingsFrom ( .Cam:Default ~Vec3d:Marker_MarioExitPos )
+	Call SetPanTarget ( .Cam:Default ~Vec3d:Marker_CamSubPos1 )
+    Call PanToTarget ( .Cam:Default 0 1 )
+    Call WaitForCam ( .Cam:Default *Fixed[1.0] )
+
+    %Call SetCamSpeed ( .Cam:Default *Fixed[0.1] )
+	%Call SetPanTarget ( .Cam:Default ~Vec3d:Marker_CamSubPos2 )
+    %Call PanToTarget ( .Cam:Default 0 1 )
+
+    Wait 40`
+
+    Call PlaySound ( 45 )
+
+    Thread
+        Wait 6`
+        Call PlayEffect    ( ~FX:WaterSplash:Up ~Vec3d:Marker_SubPos *Fixed[1.7] 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+        Call PlaySound ( 298 ) % Water Splash Sound
+    EndThread
+
+    Call MakeLerp  ( 0 128` 26` .Easing:CosBounce )
+    Loop
+        Call  UpdateLerp ( )
+        Call  TranslateGroup    ( ~Model:cheep_ship_g 00000000 *Var0 00000000 )
+        Wait  1`
+        If  *Var1  ==  00000000
+            BreakLoop
+        EndIf
+    EndLoop
+
+    Call EnableModel ( ~Model:water_spiral .True )
+
+    Wait 40`
+
+    % Fade Screen Brightness
+    SetF    *Var[0] *Fixed[45.0]  % speed
+    SetF    *Var[1] *Fixed[255.0] % fully dark
+    ExecWait $Script_FadeScreenOut
+    % Screen is now completely black
+
+    Wait 40`
+
+    Call PlaySound ( 88 )
+    Wait 15`
+    Call StopSound ( 88 )
+
+    Wait 10`
+
+    Call PlaySound ( 145 )
+    Wait 20`
+    
+    Call SetPlayerPos ( ~Vec3d:Marker_MarioExitPos )
+    Call  PlaySound ( 197 )
+
+    %  Screen goes back to normal
+
+    Thread % Fade Screen Brightness
+        SetF    *Var[0] *Fixed[25.0] % speed
+        SetF    *Var[1] *Fixed[5.0]  % fully bright
+        ExecWait $Script_FadeScreenIn
+    EndThread
+
+    %Fading Ends
+
+    % TODO: Cutscene
+
+    Exec $SubFloating
+
+    Call InterpPlayerYaw ( 270` 10` )
+
+    If *GotStartingSkills == .False
+        Set *GB_StoryProgress .Story:Ch1_PromisedToHelpKooper
+        Call  $GotStartSkills ( )
+        Set *GotStartingSkills .True
+    EndIf
+
+    Call PanToTarget ( .Cam:Default 0 0 )
+    Call DisablePlayerInput ( .False )
+
+    Return
+    End
+}
+
+#new:Function_Init $Function_Init
+{
+	PUSH    RA
+	LIA     A0, 800B0CF0
+	LIA     A1, "kmr_tex"
+	JAL     800654F0 % sprintf
+	RESERVED
+	CLEAR  V0
+	JPOP   RA
+}
+
+#new:Script $Script_SetupMusic
+{
+	Call  SetMusicTrack ( 00000000 .Song:DeepJungle 00000000 00000000 )
+	Call  ClearAmbientSounds ( 250` )
+    Call  PlaySound ( 197 )
+	Return
+	End
+}
+
+#new:Script $Script_SetupTexturePan
+{
+	Call     802C9000 	( ~Model:water1 1 )
+    Call     802C9000 	( ~Model:water_spiral 2 )
+	Thread
+		Set  *Var[0] 1
+		Set  *Var[1] 7C
+		Set  *Var[2] 6A
+		Set  *Var[3] 12
+		Set  *Var[4] 0
+		Set  *Var[5] 0
+		Set  *Var[6] 0
+		Set  *Var[7] 0
+		Set  *Var[8] 0
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
+	Thread
+		Set  *Var[0] 2
+		Set  *Var[1] 12
+		Set  *Var[2] FFFFFABF
+		Set  *Var[3] 0
+		Set  *Var[4] FFFFFE9E
+		Set  *Var[5] 0
+		Set  *Var[6] 0
+		Set  *Var[7] 0
+		Set  *Var[8] 0
+		Set  *Var[9] 0
+		Set  *Var[A] 0
+		Set  *Var[B] 0
+		Set  *Var[C] 0
+		Exec $Script_TexturePan_Update
+	EndThread
+	Return
+	End
+}
+
+#new:Script $Script_MakeEntities
+{
+    Call  MakeItemEntity    ( .Item:StarPiece ~Vec3d:Item_StarPiece1 .ItemSpawnMode:Fall_NeverVanish *MYS00_StarPiece1 )
+    Call  MakeEntity        ( .Entity:HiddenRedBlock ~Vec4d:Entity_HiddenRedBlock1 .Item:QuakeHammer 80000000 )
+    Call  AssignBlockFlag   ( *MYS00_Item_Multibounce )
+	Return
+	End
+}
+
+#new:Script $Script_Exit0
+{
+    Call    UseExitHeading  	( 3C ~Entry:Entry0 )
+    Exec    ExitWalk
+    Call    GotoMap         	( "mys_01" 0 )
+    Wait    100` 
+    Return
+    End
+}
+
+#new:Script $SubmarineExit
+{
+    Call DisablePlayerInput ( .True )
+
+    Set *SubWentDown .True
+
+    % Fade Screen Brightness
+    SetF    *Var[0] *Fixed[45.0]  % speed
+    SetF    *Var[1] *Fixed[255.0] % fully dark
+    ExecWait $Script_FadeScreenOut
+    % Screen is now completely black
+
+    Wait 20`
+
+    Call PlaySound ( 88 )
+    Wait 15`
+    Call StopSound ( 88 )
+
+    Wait 10`
+
+    Call PlaySound ( 145 )
+    Wait 12`
+
+    Call PlaySound ( 88 )
+    Wait 20`
+    Call StopSound ( 88 )
+    
+    Call SetPlayerPos ( ~Vec3d:Marker_MarioEntrancePos )
+    
+    Call DisablePartnerAI ( 0 )
+    Call SetNpcPos ( .Npc:Partner ~Vec3d:Marker_MarioEntrancePos )
+
+    Call  PlaySound ( 197 )
+
+    Call SetCamSpeed ( .Cam:Default *Fixed[99.0] )
+	Call UseSettingsFrom ( .Cam:Default ~Vec3d:Marker_MarioExitPos )
+	Call SetPanTarget ( .Cam:Default ~Vec3d:Marker_CamSubPos1 )
+    Call PanToTarget ( .Cam:Default 0 1 )
+
+    %  Screen goes back to normal
+
+    Thread % Fade Screen Brightness
+        SetF    *Var[0] *Fixed[25.0] % speed
+        SetF    *Var[1] *Fixed[5.0]  % fully bright
+        ExecWait $Script_FadeScreenIn
+    EndThread
+
+    %Fading Ends
+
+    %Call SetCamSpeed ( .Cam:Default *Fixed[0.1] )
+	%Call SetPanTarget ( .Cam:Default ~Vec3d:Marker_CamSubPos2 )
+    %Call PanToTarget ( .Cam:Default 0 1 )
+
+    Wait 40`
+
+    Call PlaySound ( 45 )
+
+    Thread
+        Wait 6`
+        Call PlayEffect    ( ~FX:WaterSplash:Up ~Vec3d:Marker_SubPos *Fixed[1.7] 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+        Call PlaySound ( 298 ) % Water Splash Sound
+    EndThread
+
+    Call MakeLerp  ( 126` -20` 26` .Easing:CosBounce )
+    Loop
+        Call  UpdateLerp ( )
+        Call  TranslateGroup    ( ~Model:cheep_ship_g 00000000 *Var0 00000000 )
+        Wait  1`
+        If  *Var1  ==  00000000
+            BreakLoop
+        EndIf
+    EndLoop
+
+    Wait    20`
+
+    Call    GotoMap         	( "mys_00" 1 ) 
+
+    Wait 200`
+
+    Return
+    End
+}
+
+#new:Script $Script_MakeExits
+{
+	Bind  $Script_Exit0 .Trigger:FloorAbove ~Collider:deiliv 00000001 00000000
+    Bind  $SubmarineExit .Trigger:WallPressA ~Collider:sub_wall_c 00000001 00000000
+	Return
+	End
+}
+

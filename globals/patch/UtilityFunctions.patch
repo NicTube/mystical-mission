@@ -1,0 +1,169 @@
+% This file contains a few global functions and scripts
+
+% Disable checking checksum while booting, used to being able to double global patches space in rom
+% UPDATE: No longer needed in newer Star Rod versions
+/%@Function 63C
+NOP
+
+@Function 648
+NOP%/
+
+% A0 = badge ID, returns boolean on A0
+% Doesn't follow calling convention, deal with it.
+%Function made by Clover (y)
+#new:Function $WriteAddress
+{
+    PUSH    RA, S0, S1, S2, S3, S4
+    LW      S0, C (A0)
+    % Get Argument 5
+    JAL     ~Func:get_variable
+    LW      A1, 10 (S0)
+    COPY    S4, V0
+    % Get Argument 4
+    JAL     ~Func:get_variable
+    LW      A1, C (S0)
+    COPY    S3, V0
+    % Get Argument 3
+    JAL     ~Func:get_variable
+    LW      A1, 8 (S0) % load Var from arg2
+    COPY    S2, V0
+    % Get Argument 2
+    JAL     ~Func:get_variable
+    LW      A1, 4 (S0)
+    COPY    S1, V0
+    % Get Argument 1
+    JAL     ~Func:get_variable
+    LW      A1, 0 (S0)
+    /%
+    Arg1=V0=Address
+    Arg2=S1=ByteSize
+    Arg3=S2=NewValue
+    Arg4=S3=Offset
+    Arg5=S4=Pointer Flag
+    %/
+    % A pointer need to be followed?
+    BNEL    S4, R0, .ReadPointer
+    LW      V0, 0 (V0)
+    .ReadPointer
+    % Read Offset
+    ADDU    V0, V0, S3
+    % Write 1, 2 or 4 Bytes
+    % Byte
+    BEQL    S1, R0, .End
+    SB      S2, 0 (V0)
+    % Half
+    ORI     T2, R0, 1
+    BEQL    S1, T2, .End
+    SH      S2, 0 (V0)
+    % Word
+    ORI     T2, R0, 2
+    BEQ     R0, R0, .End
+    SW      S2, 0 (V0)
+    .End
+    POP     RA, S0, S1, S2, S3, S4
+    JR      RA
+    ORI     V0, R0, 2
+}
+
+% Call $ReadAddress ( Address ByteSize *out offset FollowPointer )
+#new:Function $ReadAddress
+{
+    PUSH    RA, S0, S1, S2, S3, S4
+    LW      S0, C (A0)
+    % Get Argument 5
+    JAL     ~Func:get_variable
+    LW      A1, 10 (S0)
+    COPY    S4, V0
+    % Get Argument 4
+    JAL     ~Func:get_variable
+    LW      A1, C (S0)
+    COPY    S3, V0
+    % Get Argument 3
+    LW      S2, 8 (S0) % load Var from arg2
+    % Get Argument 2
+    JAL     ~Func:get_variable
+    LW      A1, 4 (S0)
+    COPY    S1, V0
+    % Get Argument 1
+    JAL     ~Func:get_variable
+    LW      A1, 0 (S0)
+    /%
+    Arg1=V0=Address
+    Arg2=S1=ByteSize
+    Arg3=S2=*out
+    Arg4=S3=Offset
+    Arg5=S4=Pointer Flag
+    %/
+    % A pointer need to be followed?
+    BNEL    S4, R0, .ReadPointer
+    LW      V0, 0 (V0)
+    .ReadPointer
+    % Read Offset
+    ADDU    V0, V0, S3
+    % Read 1, 2 or 4 Bytes
+    % Byte
+    BEQL    S1, R0, .WriteVar
+    LBU     A2, 0 (V0)
+    % Half
+    ORI     T2, R0, 1
+    BEQL    S1, T2, .WriteVar
+    LHU     A2, 0 (V0)
+    % Word
+    ORI     T2, R0, 2
+    BEQ     R0, R0, .WriteVar
+    LW      A2, 0 (V0)
+    .WriteVar
+    % Get Argument 3 and write output
+    JAL 	~Func:set_variable
+    COPY    A1, S2  % copy *out in to A1
+    POP     RA, S0, S1, S2, S3, S4
+    JR      RA
+    ORI     V0, R0, 2
+}
+
+#new:Function $IsBadgeEquipped %8043f280 (can move around when you add more stuff?)
+{
+PUSH	S1, S2, S3
+.Init
+LIO		S2, 8010F498	% position in list
+ADDIU	S3, S2, 78		% end of list
+.Loop
+LH		S1, 0 (S2)
+BEQL	A0, S1, .End
+ADDIU	A0, R0, 1 % return true
+BNE		S2, S3, .Loop
+ADDIU	S2, S2, 2
+ADDIU	A0, R0, 0 % return false
+.End
+POP		S1, S2, S3
+JR		RA
+NOP
+}
+
+% Var0 = Badge ID
+%
+% It returns a bool in Var0
+%
+% [!] Writes in Var1 and 2
+#new:Script:Global $IsBadgeEquipped_Script
+{
+Set *Var[1] 8010F498 % badge inventory - start
+Loop
+    Call $ReadAddress ( *Var[1] 1 *Var[2] .False .False )
+    If *Var[0] == *Var[2] % Is badge equipped?
+        Set *Var[0] .True
+        BreakLoop
+    EndIf
+    Add *Var[1] 2 % read next slot
+    If *Var[1] >= 8010F510 % badge inventory - end (read 60 slots)
+        Set *Var[0] .False
+        BreakLoop
+    EndIf
+EndLoop
+Return
+End
+}
+#export $IsBadgeEquipped
+#export $IsBadgeEquipped_Script
+#export $WriteAddress
+#export $ReadAddress

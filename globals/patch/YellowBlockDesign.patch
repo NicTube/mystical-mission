@@ -1,0 +1,22 @@
+% With the help of ShyBlookster137
+
+@Data E3B9F0 { % Actual Yellow Block "Idle"
+    ~RasterFile:RGBA-16:block_yellow.png
+}
+@Data E45E10 { % Yellow Block "Anim_Jump"
+    ~RasterFile:RGBA-16:block_yellow_anim_jump.png
+}
+
+@Data E474F0 { % Yellow Block "Anim_Hammer"
+    ~RasterFile:RGBA-16:block_yellow_anim.png
+}
+
+
+
+@Data E3C460 { % Red Block "Idle"
+    ~RasterFile:RGBA-16:block_red.png
+}
+
+@Data E48BE0 { % Red Block "Anim_Jump"
+    ~RasterFile:RGBA-16:block_red.png
+}

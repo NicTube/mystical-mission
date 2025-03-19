@@ -1,0 +1,85 @@
+000 = MYS03_YBlock1
+001 = MYS05_StarPiece1
+002 = MYS05_YBlock1
+003 = MYS05_SuperShroom1
+004 = FoundLakeEntrance
+005 = AlreadyStoppedAquaRock
+006 = OpenedStrangePlantPath
+007 = MYS01_YBlock_MapleSyrup
+008 = SubWentDown
+009 = MYS09_StarPiece1
+00A = MYS09_YBlock_SleepySheep
+00B = MYS09_YBlock_HotShroom
+00C = GiantGoombaDefeated
+00D = GiantGoombaBattleStart
+00E = MYS01_WaterStonePart1
+00F = MYS04_WaterStonePart2
+
+010 = GotMegaMushroom
+011 = MYS08_WaterStonePart4
+012 = BlooperPirateBattleStart
+013 = MYS06_WaterStonePart3
+014 = GotStartingSkills
+015 = FourthStoneSeen
+
+016 = MYS04_StarPiece1
+017 = MYS04_StarPiece2
+018 = MYS04_FireFlower
+019 = MYS04_YBlock1
+
+01A = MYS05_Coin1
+01B = MYS05_Coin2
+01C = MYS05_Coin3
+01D = MYS05_Coin4
+01E = MYS05_Coin5
+01F = MYS05_Coin6
+020 = MYS05_Coin7
+021 = MYS05_Coin8
+022 = MYS05_Coin9
+023 = MYS05_Coin10
+024 = MYS05_Coin11
+025 = MYS05_Coin12
+026 = MYS05_Coin13
+
+027 = MYS02_StarPiece1
+028 = MYS02_StarPiece2
+
+029 = MYS06_LegendaryPorridge
+02A = MYS00_Item_Multibounce
+02B = MYS03_Item_Badge1
+
+02C = MYS00_StarPiece1
+
+02D = Got3StarPiecePrice
+02E = Got6StarPiecePrice
+02F = GotAllStarPiecePrice
+030 = MYS05_RBlock1
+031 = MYS05_RBlock2
+
+032 = MYS10_Item_JumpCharge
+033 = FoundTubus
+034 = MYS11_LegendaryPorridge
+035 = ShownWarningMessage
+
+036 = MYS01_Bush2_Coin
+037 = MYS01_Bush3_Coin
+038 = MYS01_Bush4_Mushroom
+
+039 = MYS03_Bush2_Coin
+03A = MYS03_Bush3_Coin
+03B = MYS03_Bush4_Pebble
+03C = MYS03_Bush6_Coin
+03D = MYS03_Bush7_Coin
+03E = MYS03_Bush8_DriedShroom
+
+03F = MYS04_Bush2_Coin
+040 = MYS04_Bush3_Coin
+041 = MYS04_Bush4_Pebble
+042 = MYS04_Bush6_Coin
+043 = MYS04_Bush7_Coin
+044 = MYS04_Bush8_DriedShroom
+045 = MYS04_Bush10_Coin
+046 = MYS04_Bush11_Coin
+047 = MYS04_Bush12_Mystery
+
+048 = MarioQuizCorrect

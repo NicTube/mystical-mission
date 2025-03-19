@@ -5,3 +5,9 @@ misc/8F_DAT1.sef
 misc/D9_SET1.per
 misc/DA_SET1.prg
 mseq/[0-9A-F][0-9A-F]_[0-9][0-9][0-9].mseq
+
++
++ # Modified assets
++ !/bgm/60_162.bgm
++ !/bgm/43_145.bgm
++ !/bgm/0E_187.bgm

@@ -1,0 +1,268 @@
+#define .NpcID:StarGuy            8
+
+#new:Header $Header
+{
+	[MainScript] $Script_Main
+	[Background] 80200000
+	[EntryList] $EntryList
+	[EntryCount] 2
+    [MapTattle] 0019000D
+}
+
+#new:EntryList $EntryList
+{
+	~Vec4f:Entry0
+	~Vec4f:Entry1
+}
+
+#new:Script_Main $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:GoombaVillage
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True )
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Set	  *Var[0] $Script_MakeExits
+    Exec  EnterWalk
+
+	If *Got3StarPiecePrice == .True
+		Call  MakeEntity        ( .Entity:RedBlock ~Vec4d:Entity_RedBlock1 .Item:PowerBounce 80000000 )
+		Call  AssignBlockFlag   ( *MYS05_RBlock1 )
+	EndIf
+
+	If *GotAllStarPiecePrice == .True
+		Call  MakeEntity        ( .Entity:RedBlock ~Vec4d:Entity_RedBlock2 .Item:AllorNothing 80000000 )
+		Call  AssignBlockFlag   ( *MYS05_RBlock2 )
+	EndIf
+
+	Exec    $Script_MakeEntities
+
+	Call    MakeNpcs  ( .False $NpcGroupList_Normal )
+
+	Exec  $Script_SetupMusic
+	Return
+	End
+}
+#new:Script $Script_MakeEntities
+{
+    Call  MakeItemEntity    ( .Item:StarPiece ~Vec3d:Item_StarPiece1 .ItemSpawnMode:Fall_NeverVanish *MYS05_StarPiece1 )
+	Call  MakeItemEntity    ( .Item:SuperShroom ~Vec3d:Item_SuperShroom1 .ItemSpawnMode:Fall_NeverVanish *MYS05_SuperShroom1 )
+    Call  MakeEntity        ( .Entity:YellowBlock ~Vec4d:Entity_YellowBlock1 .Item:ThunderBolt 80000000 )
+    Call  AssignBlockFlag   ( *MYS05_YBlock1 )
+
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin1 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin1 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin2 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin2 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin3 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin3 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin4 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin4 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin5 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin5 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin6 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin6 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin7 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin7 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin8 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin8 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin9 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin9 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin10 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin10 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin11 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin11 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin12 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin12 )
+	Call  MakeItemEntity    ( .Item:Coin ~Vec3d:Marker_Coin13 .ItemSpawnMode:Fixed_NeverVanish *MYS05_Coin13 )
+	
+    Return
+    End
+}
+#new:NpcGroupList $NpcGroupList_Normal
+{
+    00000001 $NpcGroup_Goomba1 000D0000
+    00000001 $NpcGroup_Goomba2 00130000
+	00000001 $NpcGroup_StarGuy 00130000
+	00000000 00000000 00000000
+}
+#new:NpcGroup $NpcGroup_StarGuy
+{
+    00000008 $NpcSettings_Normal ~Vec3f:NPC_StarGuy % -66 20 -532
+    00000D09 $Script_Init_StarGuy 00000000 00000000 0000010E
+    ~NoDrops
+    ~Movement:NPC_StarGuy
+    ~AnimationTable:NPC_StarGuy % .Sprite:Bowser
+    00000000 00000000 00000000 001A0007 % He's Russ T. Everyone says he's the smartest Toad  ...
+}
+#new:NpcSettings $NpcSettings_Normal
+{
+	00000000 001E0018 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+#new:Script $Script_Init_StarGuy
+{
+    0:  Call  BindNpcInteract   ( .Npc:Self $Script_Interact_StarGuy )
+   14:  Return
+   1C:  End
+}
+#new:Script $Script_Interact_StarGuy
+{
+	If *GotAllStarPiecePrice == .True
+		Call  SpeakToPlayer ( .Npc:Self 003C0502 003C0501 00000000 000B0143 )
+		Wait 1
+		Goto  C
+		Wait 1
+	EndIf
+	If *Got3StarPiecePrice == .True
+		Call  SpeakToPlayer ( .Npc:Self 003C0502 003C0501 00000000 000B0142 ) % "Oh you, remember me? Well, now can you find all star pieces?"
+		Wait  1
+		Goto  A
+		Wait  5
+	EndIf
+
+	Call  SpeakToPlayer ( .Npc:Self 003C0502 003C0501 00000000 000B013F ) % 8010F29F = Star Pieces amount
+
+	Label A
+	Wait  1
+	Call  $Function_EnoughStarPieces ( *Var[0] )
+	If *Var[0] > 2
+		If  *Got3StarPiecePrice == .True
+			Wait 1
+			Goto B
+			Wait  5
+		EndIf
+
+		Set *Got3StarPiecePrice .True
+
+		Wait 1
+		Call SetNpcAnimation ( .Npc:Self 003C050C )
+		Wait 10`
+
+		Call PlaySound ( 241 ) % Sparkly sounds
+		Call  PlayEffect    ( ~FX:Sparkles:Star ~Vec3d:Entity_RedBlock1 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Call  MakeEntity        ( .Entity:RedBlock ~Vec4d:Entity_RedBlock1 .Item:PowerBounce 80000000 )
+		Call  AssignBlockFlag   ( *MYS05_RBlock1 )
+
+		Wait 10`
+		Call SetNpcAnimation ( .Npc:Self 003C0501 )
+		Wait 1
+	EndIf
+	Label B
+	If *Var[0] == 7
+		Set *GotAllStarPiecePrice .True
+		Call  SpeakToPlayer ( .Npc:Self 003C0502 003C0501 00000000 000B0141 ) % "You found all of them!"
+	
+		Wait 1
+		Call SetNpcAnimation ( .Npc:Self 003C050C )
+		Wait 10`
+
+		Call PlaySound ( 241 ) % Sparkly sounds
+		Call  PlayEffect    ( ~FX:Sparkles:Star ~Vec3d:Entity_RedBlock2 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+		Call  MakeEntity        ( .Entity:RedBlock ~Vec4d:Entity_RedBlock2 .Item:AllorNothing 80000000 )
+		Call  AssignBlockFlag   ( *MYS05_RBlock2 )
+
+		Wait 10`
+		Call SetNpcAnimation ( .Npc:Self 003C0501 )
+		Wait 1
+	EndIf
+	Label C
+	Wait 1
+  	Return
+  	End
+}
+
+#new:Function $Function_EnoughStarPieces {
+    0:  ADDIU     SP, SP, FFE8
+    4:  SW        RA, 10 (SP)
+    8:  LW        V0, C (A0)
+    C:  LAB       A2, 8010F29F % Star Pieces amount
+   14:  JAL       ~Func:set_variable
+   18:  LW        A1, 0 (V0)
+   1C:  LW        RA, 10 (SP)
+   20:  LI        V0, 2
+   24:  JR        RA
+   28:  ADDIU     SP, SP, 18
+}
+
+
+#new:NpcGroup $NpcGroup_Goomba1
+{
+	0000000C $NpcSettings_80241B00 ~Vec3f:NPC_Goomba1 % 305 50 -13
+	00000400 00000000 00000000 00000000 0000005A
+	~Items:20:Mushroom:A ~HP:Standard:2 ~FP:Standard:2 ~CoinBonus:0:2
+	~Movement:NPC_Goomba1
+	~AnimationTable:NPC_Goomba1 % .Sprite:Goomba
+	00000001 00000000 00000000 00000000 % no tattle string
+}
+#new:NpcGroup $NpcGroup_Goomba2
+{
+	0000000D $NpcSettings_80241B00 ~Vec3f:NPC_Goomba2 % 305 50 -13
+	00000400 00000000 00000000 00000000 0000005A
+	~Items:20:Mushroom:A ~HP:Standard:2 ~FP:Standard:2 ~CoinBonus:0:2
+	~Movement:NPC_Goomba2
+	~AnimationTable:NPC_Goomba2 % .Sprite:Goomba
+	00000001 00000000 00000000 00000000 % no tattle string
+}
+#new:NpcSettings $NpcSettings_80241B00
+{
+	00000000 00140017 00000000 00000000 $Script_NpcAI_80241AE0 80077F70 00000000 8007809C
+	00000000 00000000 00050000
+}
+#new:Script $Script_NpcAI_80241AE0
+{
+    0:  Call  DoBasicAI ( $AISettings_80241AB0 )
+   10:  Return
+   18:  End
+}
+#new:AISettings $AISettings_80241AB0
+{
+    1.5 % move speed
+    30` % move time
+    30` % wait time
+  130.0 % alert radius
+    0.0
+    1`
+    2.5 % chase speed
+    180`
+    3`
+  150.0 % chase radius
+    0.0
+    1`
+}
+#new:Function_Init $Function_Init
+{
+	PUSH    RA
+	LIA     A0, 800B0CF0
+	LIA     A1, "kmr_tex"
+	JAL     800654F0 % sprintf
+	RESERVED
+	CLEAR  V0
+	JPOP   RA
+}
+
+#new:Script $Script_SetupMusic
+{
+	Call  SetMusicTrack ( 00000000 .Song:ShyGuyToybox 00000000 00000008 )
+	Call  ClearAmbientSounds ( 250` )
+	Return
+	End
+}
+
+#new:Script $Script_Exit0
+{
+	Call 	PlaySound ( 3EF ) % Magical Sound
+    Call    UseExitHeading  	( 3C ~Entry:Entry0 )
+    Exec    ExitWalk
+    Call    GotoMapSpecial         	( "mys_03" 1 3 ) % white transition
+    Wait    100` 
+    Return
+    End
+}
+
+#new:Script $Script_Exit1
+{
+    Call    UseExitHeading  	( 3C ~Entry:Entry1 )
+    Exec    ExitWalk
+    Call    GotoMap         	( "mys_06" 0 )
+    Wait    100` 
+    Return
+    End
+}
+
+#new:Script $Script_MakeExits
+{
+	Bind  $Script_Exit0 .Trigger:FloorAbove ~Collider:deiliv 00000001 00000000
+	Bind  $Script_Exit1 .Trigger:FloorAbove ~Collider:deilie 00000001 00000000
+	Return
+	End
+}
+

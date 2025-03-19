@@ -1,0 +1,111 @@
+#define .NpcID:StarGuy            8
+
+#new:Header $Header
+{
+	[MainScript] $Script_Main
+	[Background] 80200000
+	[EntryList] $EntryList
+	[EntryCount] 1
+    [MapTattle] 0019000D
+}
+
+#new:EntryList $EntryList
+{
+	~Vec4f:Entry0
+}
+
+#new:Script_Main $Script_Main
+{
+	Set   *GB_WorldLocation  .Location:GoombaVillage
+	Call  SetCamPerspective  ( .Cam:Default 00000003 00000019 00000010 00001000 )
+	Call  SetCamBGColor      ( .Cam:Default 00000000 00000000 00000000 )
+	Call  SetCamEnabled      ( .Cam:Default .True )
+	Call  SetCamLeadPlayer   ( .Cam:Default .False )
+    Set	  *Var[0] $Script_MakeExits
+    Exec  EnterWalk
+
+	Set *MapVar[A] .False
+
+	Call    MakeNpcs  ( .False $NpcGroupList_Normal )
+
+	Exec  $Script_SetupMusic
+	Return
+	End
+}
+#new:NpcGroupList $NpcGroupList_Normal
+{
+	00000001 $NpcGroup_NicTube 00130000
+	00000000 00000000 00000000
+}
+#new:NpcGroup $NpcGroup_NicTube
+{
+    00000008 $NpcSettings_Normal ~Vec3f:NPC_NicTube % -66 20 -532
+    00000D09 $Script_Init_NicTube 00000000 00000000 0000010E
+    ~NoDrops
+    ~Movement:NPC_NicTube
+    ~AnimationTable:NPC_NicTube % .Sprite:Bowser
+    00000000 00000000 00000000 001A0007 % He's Russ T. Everyone says he's the smartest Toad  ...
+}
+#new:NpcSettings $NpcSettings_Normal
+{
+	00000000 001E0018 00000000 00000000 00000000 00000000 00000000 00000000
+	00000000 00000000 00630000
+}
+#new:Script $Script_Init_NicTube
+{
+    0:  Call  BindNpcInteract   ( .Npc:Self $Script_Interact_NicTube )
+   14:  Return
+   1C:  End
+}
+#new:Script $Script_Interact_NicTube
+{
+	Call  SpeakToPlayer ( .Npc:Self 00960204 00960201 00000000 0017001E )
+	If *MYS11_LegendaryPorridge == .False
+		If *MapVar[A] == .False
+			Set *MapVar[A] .True
+			Call  PlaySound ( 241 )
+			Call  PlayEffect    ( ~FX:Sparkles:Star ~Vec3d:Marker_Item 0000001E 00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000 )
+			Call  MakeItemEntity    ( .Item:SpicySoup ~Vec3d:Marker_Item .ItemSpawnMode:Fall_NeverVanish *MYS11_LegendaryPorridge )
+		EndIf
+	EndIf
+  	Return
+  	End
+}
+
+#new:Function_Init $Function_Init
+{
+	PUSH    RA
+	LIA     A0, 800B0CF0
+	LIA     A1, "kmr_tex"
+	JAL     800654F0 % sprintf
+	RESERVED
+	CLEAR  V0
+	JPOP   RA
+}
+
+#new:Script $Script_SetupMusic
+{
+	Call  SetMusicTrack ( 00000000 .Song:ShyGuyToybox 00000000 00000008 )
+	Call  ClearAmbientSounds ( 250` )
+	Return
+	End
+}
+
+#new:Script $Script_Exit0
+{
+	Call 	PlaySound ( 3EF ) % Magical Sound
+    Call    UseExitHeading  	( 3C ~Entry:Entry0 )
+    Exec    ExitWalk
+    Call    GotoMapSpecial         	( "mys_03" 2 3 ) % white transition
+    Wait    100` 
+    Return
+    End
+}
+
+#new:Script $Script_MakeExits
+{
+	Bind  $Script_Exit0 .Trigger:FloorAbove ~Collider:deiliv 00000001 00000000
+	Return
+	End
+}
+

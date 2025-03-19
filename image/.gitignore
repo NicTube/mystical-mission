@@ -4,3 +4,10 @@
 *.iis
 *.mtl
 *.txa
+
++
++ # Modified assets
++ !/bg/jan_bg.png
++ !/compressed/title_1.png
++ !/compressed/title_2.png
++ !/compressed/title_3.png

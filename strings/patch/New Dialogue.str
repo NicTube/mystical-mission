@@ -1,0 +1,359 @@
+#message:0B:109
+{
+[Style Right]
+Let's start with a simple one,[BR]shan't we?[BR]
+[Wait][Next]
+This island we're, probably,[Pause 5][BR]perhaps,[Pause 5] maybe,[Pause 5] currently on..[Pause 5][BR]what's it called?[BR]
+[Yield][End]
+}
+#message:0B:10A
+{
+[Style Choice pos=70,70 size=200,62]
+[StartChoice]
+[Option 0][SaveColor][Color:2C]Shroob Island[BR]
+[Option 1]Isla Mushroomia[BR]
+[Option 2]Isla Myshroomia[BR]
+[EndChoice][End]
+}
+#message:0B:10B
+{
+[Style Right]
+And your answer is...[Wait][End]
+}
+#message:0B:10C
+{
+[Style Right]
+[Wave][CROSS] [SaveColor][Color:07]INCORRECT![RestoreColor] [CROSS][/fx][BR][Pause 10][Size 12][BR]Aww, how sad.[Pause 10] Truly sorrowful.[Wait][End]
+}
+
+#message:0B:10D
+{
+[Style Right]
+[Wave][Size 30][STAR] [SaveColor][Color:03]CORRECT![RestoreColor] [STAR][/fx][BR][Pause 10][Size 12][BR]Bravo, little plumber and egg.[Pause 10] You're not as[BR]hopeless as you look.[Wait][End]
+}
+
+#message:0B:10E
+{
+[Style Right]
+[Wave][Size 30][STAR] [SaveColor][Color:03]CORRECT![RestoreColor] [STAR][/fx][BR][Pause 10][Size 12][BR]You got it right, that's fun. Very fun.[Wait][End]
+}
+
+#message:0B:10F
+{
+[Style Right]
+[Wave][Size 30][STAR] [SaveColor][Color:03]CORRECT![RestoreColor] [STAR][/fx][BR][Pause 10][Size 12][BR]Harharhar.[Pause 12] Enjoyment.[Wait][End]
+}
+
+#message:0B:110
+{
+[Style Right]
+[Wave][Size 30][STAR] [SaveColor][Color:03]CORRECT![RestoreColor] [STAR][/fx][BR][Pause 10][Size 10][BR]Heehee.[Pause 12] PURE enjoyment.[Wait][End]
+}
+
+#message:0B:111
+{
+[Style Right]
+[Wave][CROSS] [SaveColor][Color:07]INCORRECT![RestoreColor] [CROSS][/fx][Pause 18][Size 12][BR][BR][BR].[Pause 5].[Pause 5].[Pause 5]is what I just made you think.[Pause 10][BR]Let me be real for once,[BR]even if that's significantly less fun..
+[Wait][End]
+}
+
+#message:0B:112
+{
+[Style Right]
+[Wave][CROSS] [SaveColor][Color:07]INCORRECT![RestoreColor] [CROSS][/fx][Pause 10][Size 12][BR][BR][BR]Aww, so sorry[Pause 5].[Pause 5].[Pause 5].[Pause 15] not really.[Pause 10][BR]I was hoping to get some fun out of this[BR]and you're surely delivering.[Wait][End]
+}
+
+#message:0B:113
+{
+[Style Right]
+[Wave][CROSS] [SaveColor][Color:07]INCORRECT![RestoreColor] [CROSS][/fx][Pause 10][Size 12][BR][BR][BR]Poor soul.[Pause 10] Poor egg.[Wait][End]
+}
+
+#message:0B:114
+{
+[Style Right]
+Moving on...[Pause 10][BR]
+[Wait][Next]
+Legend has it that the [SaveColor][Color:2A]creator[RestoreColor][BR]of our lands is responsible[BR]for another adventure you two[BR]were part of.[BR][Wait][Next]Tell me, what was the name of[BR]that adventure?[BR]
+[Yield][End]
+}
+
+#message:0B:115
+{
+[Style Choice pos=70,70 size=200,82]
+[StartChoice]
+[Option 0][SaveColor][Color:2C]Sacred Trio[BR]
+[Option 1]Sacred Stones[BR]
+[Option 2]Sacred Altar[BR]
+[Option 3]Sacred Nova[BR]
+[EndChoice][End]
+}
+
+#message:0B:116
+{
+[Style Right]
+Sacred Trio it is. Fun.[BR][Wait][Next]This island works in [Wave]mysterious[/fx][BR]ways, doesn't it?[Pause 10][BR]What's something you did NOT see[BR]on it yet?[BR]
+[Yield][End]
+}
+
+#message:0B:117
+{
+[Style Choice pos=70,70 size=200,82]
+[StartChoice]
+[Option 0][SaveColor][Color:2C]Upside-down waterfall[BR]
+[Option 1]Blue, endless vines[BR]
+[Option 2]Floating mushrooms[BR]
+[Option 3]Swirly plants[BR]
+[EndChoice][End]
+}
+
+#message:0B:118
+{
+[Style Right]
+The fun continues.[Pause 10] Funtastic.[Pause 10][BR]
+[Wait][Next]
+You may know by now that the[BR]Mushroom Kingdom was hit by a[BR]cardastrophic event, a huge[BR]wave of water..[Pause 10] the [SaveColor][Color:23]Fatal Flood[RestoreColor].[BR][Wait][Next]Does the [SaveColor][Color:23]Fatal Flood[RestoreColor] have[BR]another name?[BR][Pause 10]If yes, what is it?[BR]
+[Yield][End]
+}
+
+#message:0B:119
+{
+[Style Choice pos=70,70 size=150,82]
+[StartChoice]
+[Option 0][SaveColor][Color:2C]Final Flood[BR]
+[Option 1]Catastroflood[BR]
+[Option 2]Tidal Wave[BR]
+[Option 3]It does not[BR]
+[EndChoice][End]
+}
+
+#message:0B:11A
+{
+[Style Right]
+Hah..[Pause 10] keeping going, I notice.[Pause 10][BR]Continuously.[Pause 10][BR][Wait][Next]Feels like watching you run[BR]up a mountain helplessly, hoping[BR]to escape an inevitable flood.[Pause 10][BR]
+[Wait][Next]
+Ahh, what a [Wave]motivating[/fx][BR]and [Wave]vivid[/fx] mindset.[BR][Wait][Next]Oh, are you getting tired[BR]of me yet?[BR][Pause 10]Well, who would ask quiz questions[BR]if it wasn't for me?[BR]
+[Yield][End]
+}
+
+#message:0B:11B
+{
+[Style Choice pos=70,70 size=180,65]
+[StartChoice]
+[Option 0][SaveColor][Color:2C]Quizmaster Par T.[BR]
+[Option 1]Merlon's cousin[BR]
+[Option 2]Gourmet Guy[BR]
+[EndChoice][End]
+}
+
+#message:0B:11C
+{
+[Style Right]
+[Wave][Size 18][STAR] [SaveColor][Color:03]SUBCONGRATULATIONS[RestoreColor] [STAR][/fx][BR][Pause 10][Size 12][BR]Thanks for coming.[Pause 10][BR]Here comes the debris you want.[Wait][End]
+}
+
+#message:0B:11D
+{
+[Style Right]
+That's the third mistake![BR]The quiz show is over![BR]Thanks a lot for coming and[BR]enjoy your bath.[Wait][End]
+}
+
+#message:0B:11E
+{
+[Style Right]
+[Wave][Size 23][Rainbow][STAR] [SaveColor][Color:03]IT'S THE BIG WIN![RestoreColor] [STAR][/fx][BR][Pause 10][Size 10][BR][/fx]You answered ALL questions correctly.[BR]Time for a special reward.[Wait][End]
+}
+
+#message:0B:11F
+{
+[Style Right]
+[Wave][Size 30][STAR] [SaveColor][Color:03]CORRECT![RestoreColor] [STAR][/fx][BR][Pause 10][Size 10][BR]Heehee.[Pause 12] Got you there.[Wait][End]
+}
+
+#message:0B:120
+{
+[Style Inspect]
+[BR][Rainbow][Wave][Right 75][STAR] CREDITS [STAR][/fx][/fx][BR][Wait][Next][SaveColor][Color:02]Map Design:[RestoreColor] NicTube[Pause 5][BR][SaveColor][Color:02]Coding & Scripting:[RestoreColor] NicTube[Pause 5][BR][SaveColor][Color:02]Story & Dialogue:[RestoreColor] NicTube[Pause 5][BR][SaveColor][Color:02]New Sprites:[RestoreColor] ManaPesto, NicTube[BR][Wait][Next][Color:02]New Music (MIDIs):[RestoreColor][BR]BetaCovers, Joe Cortez, Some Body[BR][Color:02]Console Testing:[RestoreColor] Zelly_9191,[BR]OniHelix[BR][Wait][Next][Color:02]New Badge:[RestoreColor] T00nbink[BR]Special thanks to the [SaveColor][Color:05]Star Haven[BR]Discord[RestoreColor]![BR][Wait][Next]And of course [Wave][SaveColor][Color:05]YOU[RestoreColor][/fx] for playing! [Pause 10][STAR][BR]How many of the 7 Shine Pieces[BR]did you manage to find?[BR][Wait][Next]Hope you enjoyed this little[BR]adventure![BR][Pause 10]And to see you again for[BR]Star Nova :)[Wait][End]
+}
+
+#message:0B:121
+{
+[Style Right]
+Hey, you weird flowers![BR]Gimme that thing![BR]I've heard that there's three[BR]of those here,[Pause 5] and all mine![BR][Wait][Next]You should know that all shiny[BR]stuff in this world belongs to me,[Pause 10][BR]and ME alone![Wait][End]
+}
+
+#message:0B:122
+{
+[Style Right]
+..Vatis disgui tohkin uhbowt?[Wait][End]
+}
+#message:0B:123
+{
+[Style Right]
+Ith inkhe wantztu stiel[BR]ower dresha.[BR][Wait][Next]Led z'korna heam.[Wait][End]
+}
+#message:0B:124
+{
+[Style Right]
+Stop talking in your weird[BR]photosynthesis language or[BR]whatever it's called![BR][Wait][Next]It's already been so boring just[BR]flying around since that big wave[BR]appeared. No matter where I fly,[BR]only WATER everywhere![BR][Wait][Next]If this strange island wasn't[BR]like,[Pause 5] the [SaveColor][Color:19]only[RestoreColor] place aside from[BR]that boooring water mass,[BR]I would've never come here![BR][Wait][Next]So now I want some[BR]entertainment to cope with that![BR][Pause 10]Now if you won't talk to me like a[BR]normal plant being in 3[Pause 2].[Pause 5].[Pause 10] 2[Pause 2].[Pause 5].[Pause 10][Wait][End]
+}
+#message:0B:125
+{
+[Style Right]
+[PrintRising][Shake][SaveColor][Color:19]MARIO[RestoreColor]?![/fx] [/fx][Pause 10][BR][PrintRising]In what horrible place did[BR]I end up here?![/fx][Pause 10][BR][Wait][Next]Wait right there, dumb plants![Pause 10][BR]I'll beat you up [PrintRising]RIGHT[/fx] after I[BR]got rid of Mario![Wait][End]
+}
+#message:0B:126
+{
+[Style Right]
+Hey, stop that!![BR][Pause 10]Can't you be a bit more patient,[BR]you stupid weed?![BR][Wait][Next]Ugh,[Pause 4] fine![Pause 10][BR]I changed my plants[Pause 4].[Pause 4].[Pause 5] no,[Pause 4] [PrintRising]plans[/fx],[Pause 10][BR]so you purple things will be the[BR]ones to get beat up first![Wait][End]
+}
+#message:0B:127
+{
+[Style Right]
+Gah, I always hated veggies![BR]And those were the worst ones[BR]by far![BR][Wait][Next][PrintRising]WAIT--[BR][Wait][Next]Did I just team up with [Shake]Mario[/fx][BR]of all people to beat those guys?![/fx][BR][Wait][Next]...[BR][Wait][Next]Sigh..[BR][Wait][Next]Y'know what, Mario?[Pause 10][BR]You look as lost as you usually[BR][PrintRising]always[/fx] do, so..[Pause 10] I may as well..[BR][Wait][Next]..get you out of here, so I can[BR]beat you up in a more..[Pause 10][BR]less weird place.[BR][Wait][Next]Without veggies nearby![Wait][End]
+}
+#message:0B:128
+{
+[Style Right]
+Mario, turn around![BR][Pause 5]You know that I only came here[BR]to get that [SaveColor][Color:23]shiny stone[RestoreColor] on[BR]the ground![Wait][End]
+}
+#message:0B:129
+{
+[Style Right]
+Whoa..[BR][Wait][Next]That mushroom..[Wait][End]
+}
+#message:0B:12A
+{
+[Style Right]
+HEY, there's another one[BR]of those shiny treasure stones[BR]on top of that mushroom![BR]All mine![Wait][End]
+}
+#message:0B:12B
+{
+[Style Right]
+But..[BR][Wait][Next]I think that's like.. that one[BR]mushroom my grandpa told me[BR]about.[BR][Wait][Next]"Jr..[Pause 10] if you shall remember one[BR]thing I say,[Pause 10] it's that you should[BR]never touch the blue, immensely[BR]toxic mushroom."[BR][Wait][Next]That's the short form, without[BR]the coughs.[BR][Pause 10]But..[Pause 10] blahblahblah..[Pause 10][BR]Probs not that serious anyway![BR][Wait][Next]I'll just fly up and get the[BR]crystal thing!![Wait][End]
+}
+#message:0B:12C
+{
+[Style Right]
+You really fell for that[BR]mushroom?![BR]I KNEW it would be a bad idea[BR]to team up with Mario..[BR][Wait][Next]Only thanks to you we have no[BR]idea where we are now.[Wait][End]
+}
+#message:0B:12D
+{
+[Style Right]
+What the..[BR][Pause 10]Everything around us grew?![BR][Pause 10]Ugh..[Pause 5] I hate being small![Wait][End]
+}
+#message:0B:12E
+{
+[Style Right]
+Aha, there you are![BR][Wait][Next]How did you like my surprise[BR]attack earlier, you[BR]now-oh-so-tiny goobers?[BR][Wait][Next]The time of you being the bigger[BR]one is over,[Pause 10] this will now be our[BR]territory,[Pause 10] [SaveColor][Color:26][Wave]Isla Goomba[/fx][RestoreColor]![Wait][End]
+}
+#message:0B:12F
+{
+[Style Right]
+Finally, I'm big![BR][Pause 10]I haven't felt that way since[BR]I first hatched..[BR][Wait][Next]Whatever, what's up over there?[Wait][End]
+}
+#message:0B:130
+{
+[Style Right]
+That aqua thingy fell to the[BR]ground!![Pause 10][BR]Get over there already to[BR]get it, now!![Wait][End]
+}
+#message:0B:131
+{
+[Style Right]
+Oof!![Pause 10][BR]Another strange-looking[BR]mushroom..[BR][Wait][Next]But we gotta try what[BR]we can to get big again..[BR]so hurry up and get over there!![Wait][End]
+}
+#message:0B:132
+{
+[Style Right]
+.[Pause 5].[Pause 5].[Pause 10][BR]Seems like someone got lost and[BR]slipped into the [Wave]darkest corners[/fx][BR]of our estate.[BR][Wait][Next]Oh, how unfortunate.[Pause 10][BR]You'd wish this card house was[BR]all fun and joy, wouldn't you?[BR][Wait][Next]Well, there is certain things in[BR]life you cannot rewind.[Pause 10][BR][Wave]And[/fx] there's things you regret not[BR]doing for the rest of your life.[BR][Wait][Next]Thus, let's not delay the[BR]consequences of your actions[BR]much further.[BR][Wait][Next]So sorry to tell you that[BR]this will be your...[Wait][End]
+}
+#message:0B:133
+{
+[Style Right]
+[Size 13]     FIRST OPPORTUNITY TO JOIN THE[BR][Size 28][Rainbow][Wave] GREAT PHANSHOW[/fx][/fx][Wait][End]
+}
+#message:0B:134
+{
+[Style Right]
+I,[Pause 10] [SaveColor][Color:26]Phanto[RestoreColor],[Pause 10] am pleased to[BR]announce another new quiz show,[BR]right here on Isla Myshroomia![BR][Wait][Next]I am aware it has been a while[BR]since our last broadcast, though[BR]this one will make the time spent[BR]waiting worthwhile.[BR][Wait][Next]Why, you ask?[BR][Wait][Next]Because not only do we have[BR]some phantastic guests,[BR]but we also, for the first time,[BR]present you a special event![BR][Wait][Next]After [SaveColor][Color:19]3 failed questions[RestoreColor] from[BR]our wonderful participants,[BR]our little quiz room [SaveColor][Color:1A]will fill up[BR]to the brim with water![RestoreColor][Wait][End]
+}
+#message:0B:135
+{
+[Style Right]
+What in the--[BR][Wait][Next][Size 13]...Mario, what the Underwhere did[BR]you get us into here?![Wait][End]
+}
+#message:0B:136
+{
+[Style Right]
+Roll out the cardpet,[BR]it is time to start![BR][Wait][Next]Best of luck, [Size 12][BR][BR]you will need it.[Wait][End]
+}
+#message:0B:137
+{
+[Style Right]
+What..[BR][Wait][Next]What was that..[BR][Wait][Next]Doesn't matter, who cares?![BR]I got another one of those[BR]relic stone things for my[BR]shiny stuff collection![BR][Wait][Next]But it's kinda dark here..[BR][Wait][Next]What're you yapping?![BR][Pause 10]I-I'm NOT scared![Pause 10][BR]I..[Pause 10] I could stay inside this[BR]creepy card house FOREVER![Wait][End]
+}
+#message:0B:138
+{
+[Style Right]
+What's that?![BR][Pause 10]I thought there's only[BR]three of those shiny rocks!![BR][Wait][Next]More for me, let's get it!![Wait][End]
+}
+#message:0B:139
+{
+[Style Right]
+What's up with that rumbling?![BR][Wait][Next]Wait..[Pause 10][BR][Shake]THE WATER IS RISING!![Pause 10][BR]MARIO, YOU IDIOT!![/fx][Wait][End]
+}
+#message:0B:13A
+{
+[Style Right]
+[Shake]Now run up that hill already!![BR][Pause 10]Thanks to you the only island[BR]left is JUST NOW being consumed[BR]by the water as well!![/fx][Wait][End]
+}
+#message:0B:13B
+{
+[Style Inspect]
+[InputOff][BR][Rainbow][Wave][Right 75][STAR] [Pause 3]C[Pause 3]R[Pause 3]E[Pause 3]D[Pause 3]I[Pause 3]T[Pause 3]S[Pause 3] [STAR][Pause 10][InputOn][/fx][/fx][BR][Wait][Next][SaveColor][Color:02]Map Design:[End]
+}
+#message:0B:13C
+{
+[Style Right]
+[Wave]ARRRR!![/fx][BR][Wait][Next]What are yo-ho-hou doin' here?[Pause 10][BR]Interruptin' my perfect plan[BR]of floodin' the entire kingdom...[BR][Wait][Next]Yarr submarine's already[BR]below all lands and sands![BR][Pause 10]I sank it to the seabed, so y'all[BR]arrre done for![BR][Wait][Next]Aye'm creating the perfect[BR]world for all marine life..[Pause 10][BR]Without anymore landlubbers and[BR]scallywags polluting our homes![BR][Wait][Next]The old days, just like it's been[BR][Shake]BEFORE[/fx] y'all oxygen-fanatic[BR]bilge rats who conquered the[BR]lands showed up.[BR][Wait][Next]And even though this island and[BR]its [SaveColor][Color:1A]Aqua Volcano[RestoreColor] helped a lot[BR]with flooding the world, its job[BR]is fulfilled now...[BR][Wait][Next]Which thar means, it'll be the[BR]final missing piece of a soon to[BR]be fully underwater world![BR][Pause 10][Shake]And ye will be aparrrt of it![/fx][BR][Wait][End]
+}
+#message:0B:13D
+{
+[Style Right]
+Aye aye...[Pause 10] can't believe it.[BR][Pause 10]A real pirate never admits his[BR]loss, I stand by my choice..[BR][Wait][Next]Perhaps a little egotistical[BR]to conquer all and everythin'[BR]for that..[Pause 10] but my point stands![BR][Wait][Next]Until we meet again,[BR]ye scurvy dogs![Wait][End]
+}
+#message:0B:13E
+{
+[Style Right]
+That was closer than[BR]I thought..[Pause 10][BR]But the water is slowly[BR]lowering again.[BR][Wait][Next]As always, I did the right thing.[Pause 10][BR]Normally I'd say heroes are lame,[BR]but [SaveColor][Color:19]once[RestoreColor] is..[Pause 10] fine for me.[BR][Wait][Next]What am I talking?![BR]I just did this to have some good[BR]land again to fight you and[BR]beat you up once and for all![BR][Wait][Next]As soon as we'll be back on[BR]better grounds, there will be[BR]the most epic battle in history![Wait][End]
+}
+#message:0B:13F
+{
+[Style Right]
+Hey, it's me, [SaveColor][Color:26]Star Guy[RestoreColor]! [STAR][BR][Wait][Next]I collect [SaveColor][Color:37]Shine Pieces[RestoreColor] around[BR]here.[Pause 10] That's my passion.[Pause 10][BR]If you have [SaveColor][Color:19]3 or more[RestoreColor], I'll give[BR]you a useful badge![Pause 10] Maybe.[BR][Wait][Next]And if you find all of them...[Pause 10][BR]I don't know if you get[BR]something![BR][Pause 10]May or may not.[Wait][End]
+}
+#message:0B:140
+{
+[Style Right]
+Hey, it's me, Star Guy![BR][Wait][Next]I collect Shine Pieces around[BR]here. That's my passion.[Pause 10][BR]If you have [SaveColor][Color:19]6 or more[RestoreColor], I'll give[BR]you another new, useful badge![Wait][End]
+}
+#message:0B:141
+{
+[Style Right]
+Woooow, you found [SaveColor][Color:20]ALL[RestoreColor] of the[BR]Shine Pieces?![BR][Wait][Next]That deserves a truly[BR]cool badge for you, collector![Wait][End]
+}
+#message:0B:142
+{
+[Style Right]
+Oh, you![BR][Pause 10]Remember me?[Pause 10][BR]It's me, [SaveColor][Color:26]Star Guy[RestoreColor]! [STAR][BR][Wait][Next]You already know I collect[BR]Shine Pieces around here.[Pause 10][BR]If you find all [SaveColor][Color:19]7[RestoreColor], you might get[BR]nothing from me![Pause 10] Or something.[BR][Wait][Next]Only try it if you enjoy[BR]searching![Wait][End]
+}
+#message:0B:143
+{
+[Style Right]
+You got everything I have![BR]Thanks for your Shine Pieces![BR][Pause 10]You're a real completionist![Wait][End]
+}
+#message:0B:144
+{
+[Style Inspect]
+If you have any unfinished[BR]business or you want to explore[BR]the world further, it is[BR]recommended to do so now.[Wait][End]
+}

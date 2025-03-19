@@ -1,0 +1,38 @@
+@ $Script_80239E70
+{
+    0:  Call  802694A4  ( 00000001 )
+   10:  Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
+   28:  Switch  *Var0
+   34:  	Case  ==  00000008
+   40:  		Call  LoadStarPowerScript ( )
+   4C:  		ExecWait  *Var0
+   58:  		Return
+   60:  EndSwitch
+   68:  Call  GetMenuSelection  ( *Var0 *Var1 *Var2 )
+   80:  Switch  *Var2
+   8C:  	Case  ==  00000095
+   98:  		Call  SetBattleFlagBits ( 00004000 .False )
+   AC:  		Set   *VarE  00000001
+   BC:  		Set   *VarF  00000003
+   CC:  		ExecWait  $Script_8023A4D4
+   D8:  	Case  ==  00000096
+   E4:  		Call  SetBattleFlagBits ( 00004000 .False )
+   F8:  		Set   *VarE  00000002
+  108:  		Set   *VarF  00000003
+  118:  		ExecWait  $Script_8023A4D4
+  124:  	Case  ==  00000097
+  130:  		Call  SetBattleFlagBits ( 00004000 .False )
+  144:  		Set   *VarE  00000004
+  154:  		Set   *VarF  00000005
+  164:  		ExecWait  $Script_8023A4D4
+  170:  	Case  ==  00000098
+  17C:  		Call  SetBattleFlagBits ( 00004000 .False )
+  190:  		ExecWait  $Script_8023AA64
+  19C:  	Case  ==  00000099
+  1A8:  		ExecWait  $Script_8023AF7C
+  1B4:  	Case  ==  0000009A
+  1C0:  		ExecWait  $Script_8023B6FC
+  1CC:  EndSwitch
+  1D4:  Return
+  1DC:  End
+}

@@ -1,0 +1,40 @@
+@ $Script_802403C0
+{
+    0:  Call  $Function_80240210 ( )
+    C:  Wait  15`
+   18:  Thread
+   20:  	Call  MakeLerp  ( 00000000 000000FF 00000064 .Easing:CubicOut )
+   3C:  	Loop
+   48:  		Call  UpdateLerp ( )
+   54:  		Call  $Function_802402B4 ( )
+   60:  		Wait  1`
+   6C:  		If  *Var1  ==  00000000
+   7C:  			BreakLoop
+   84:  		EndIf
+   8C:  	EndLoop
+   94:  EndThread
+   9C:  Call  MakeLerp  ( 0000006A 00000038 00000064 .Easing:CubicOut )
+   B8:  Loop
+   C4:  	Call  UpdateLerp ( )
+   D0:  	Call  $Function_802402C8 ( )
+   DC:  	Wait  1`
+   E8:  	If  *Var1  ==  00000000
+   F8:  		BreakLoop
+  100:  	EndIf
+  108:  EndLoop
+  110:  Wait  30`
+  11C:  Call  MakeLerp  ( 000000FF 00000000 00000032 .Easing:QuadraticIn )
+  138:  Loop
+  144:  	Call  UpdateLerp ( )
+  150:  	Call  $Function_802402B4 ( )
+  15C:  	Wait  1`
+  168:  	If  *Var1  ==  00000000
+  178:  		BreakLoop
+  180:  	EndIf
+  188:  EndLoop
+  190:  Wait  15`
+  19C:  Call  GotoMapSpecial        ( "mys_00" 1 7 ) % kmr_20
+  1B4:  Wait  100`
+  1C0:  Return
+  1C8:  End
+}

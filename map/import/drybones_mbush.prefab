@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Prefab author="unnamed" textures="kmr_tex">
+	<MarkerTree>
+		<Node name="Root" id="1">
+			<Node name="NPC_MBush1" id="FFFFFFFF"/>
+			<Node name="NPC_DryBones1" id="0"/>
+		</Node>
+	</MarkerTree>
+	<Markers>
+		<Marker ver="4" type="Root">
+			<MapObject name="Root" id="1"/>
+		</Marker>
+		<Marker ver="4" type="NPC" pos="-84,-33,24" yaw="-150.000000">
+			<MapObject name="NPC_DryBones1" id="0"/>
+			<Movement type="Wander" data="FFFFFFAC,FFFFFFDF,18,1E,14,FFFF8001,1,FFFFFFAC,FFFFFFDF,18,78,82,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+			<Sprite sprite="53" palette="0" animations="2,4,4,4,0,0,B,B,0,0,0,0,0,0,0,0"/>
+		</Marker>
+		<Marker ver="4" type="NPC" pos="223,-33,228" yaw="-150.000000">
+			<MapObject name="NPC_MBush1" id="FFFFFFFF"/>
+			<Movement type="Wander" data="DF,FFFFFFDF,E4,1E,14,FFFF8001,1,DF,FFFFFFDF,E4,78,82,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0"/>
+			<Sprite sprite="45" palette="0" animations="2,4,4,4,0,0,A,A,0,0,0,0,0,0,0,0"/>
+		</Marker>
+	</Markers>
+</Prefab>
